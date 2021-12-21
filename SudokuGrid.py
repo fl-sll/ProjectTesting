@@ -150,20 +150,8 @@ def format_time(secs):
     minute = secs // 60
     hour = minute // 60
 
-    mat = " " + str(minute) + ":" + str(sec)
-    return mat
-
-def button(win, pos, text):
-    font = pygame.font.SysFont("timesnewroman", 30)
-    text1 = font.render(text, 1, (255, 0, 0))
-    x, y, w , h = text1.get_rect()
-    x, y = pos
-    pygame.draw.line(win, (150, 150, 150), (x, y), (x + w , y), 5)
-    pygame.draw.line(win, (150, 150, 150), (x, y - 2), (x, y + h), 5)
-    pygame.draw.line(win, (50, 50, 50), (x, y + h), (x + w , y + h), 5)
-    pygame.draw.line(win, (50, 50, 50), (x + w , y+h), [x + w , y], 5)
-    pygame.draw.rect(win, (100, 100, 100), (x, y, w , h))
-    return win.blit(text1, (x, y))
+    time = " " + str(minute) + ":" + str(sec)
+    return time
 
 def main():
     win = pygame.display.set_mode((540,600))
@@ -173,8 +161,7 @@ def main():
     run = True
     start = time.time()
     strikes = 0
-    sButton = button(win, (400, 560), "Solve")
-
+    
     while run:
 
         play_time = round(time.time() - start)
